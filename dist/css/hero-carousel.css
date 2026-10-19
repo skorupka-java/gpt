@@ -1,0 +1,90 @@
+/* Nowa karuzela Skorupka — autorskie ilustracje i samodzielny komponent. */
+.business-hero {padding: 28px 0 42px;}
+.hero-stage {background: #f4f1eb; border: 1px solid #e8e3db; border-radius: 12px; overflow: hidden;}
+.hero-stage__viewport {min-width: 0; touch-action: pan-y pinch-zoom;}
+.hero-stage__slide {display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 20px; min-height: 526px; padding: 46px 36px 40px 48px;}
+.hero-stage__slide[hidden], .hero-stage__controls[hidden] {display: none;}
+.hero-stage__copy {min-width: 0; position: relative; z-index: 1;}
+.hero-stage__eyebrow {display: flex; align-items: center; gap: 9px; margin: 0 0 24px; font-size: 10px; font-weight: 650; text-transform: uppercase; letter-spacing: .15em; color: #665b74;}
+.hero-stage__eyebrow::before {content: ""; width: 6px; height: 6px; border-radius: 50%; background: #b17236; flex-shrink: 0;}
+.hero-stage__title {font-size: clamp(40px, 4.4vw, 58px); line-height: 1.08; letter-spacing: -.055em; font-weight: 500; margin: 0 0 22px; min-height: 3.24em; text-wrap: initial;}
+.hero-stage__title em {font-style: normal; color: #746486; font-weight: 450;}
+.hero-stage__lead {font-size: 15px; line-height: 1.75; color: #62616a; max-width: 42ch; min-height: 5.25em; margin: 0 0 24px;}
+.hero-stage__actions {display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-bottom: 22px;}
+.hero-stage__actions .btn {font-size: 13px; padding: 15px 20px; gap: 22px; min-height: 50px;}
+.hero-stage__actions .text-link {font-size: 13px; gap: 12px;}
+.hero-stage__note {font-size: 12px; color: #6b626f; margin: 0; letter-spacing: .01em;}
+.hero-stage__proof {display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; color: #5c4b70; font-size: 12px; line-height: 1.65; text-decoration: none;}
+.hero-stage__proof:hover {text-decoration: underline; text-underline-offset: 4px;}
+.hero-stage__visual {margin: 0; min-width: 0; position: relative;}
+.hero-stage__visual img {display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; border-radius: 6px;}
+.hero-stage__visual figcaption {display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 24px; font-size: 12px; letter-spacing: .02em; color: #6b626f;}
+.hero-stage__visual figcaption::before {content: ""; height: 1px; width: 24px; background: #b6a8c6;}
+.hero-stage__controls {display: flex; align-items: stretch; gap: 26px; padding: 0 36px 0 48px; background: #fcfbf8; border-top: 1px solid #e4dfd7;}
+.hero-stage__tabs {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); flex: 1; min-width: 0; gap: 24px;}
+.hero-stage__tab {display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 3px 12px; position: relative; min-height: 92px; border: 0; padding: 22px 0 19px; background: transparent; text-align: left; font: inherit; cursor: pointer; color: #777079;}
+.hero-stage__tab::before {position: absolute; top: -1px; left: 0; width: 100%; height: 3px; content: ""; background: transparent;}
+.hero-stage__tab[aria-current="true"] {color: #33283f;}
+.hero-stage__tab[aria-current="true"]::before {background: #8c73a9;}
+.hero-stage__tab:hover {color: #5b4b80;}
+.hero-stage__tab > span {font-size: 12px; font-variant-numeric: tabular-nums; grid-row: 1 / 3; color: #6b626f;}
+.hero-stage__tab b {font-weight: 550; font-size: 13px; line-height: 1.4;}
+.hero-stage__tab small {grid-column: 2; font-size: 12px; line-height: 1.5; color: #6b626f;}
+.hero-stage__navigation {display: flex; align-items: center; gap: 8px;}
+.hero-stage__count {font-size: 12px; font-variant-numeric: tabular-nums; color: #6b626f; white-space: nowrap; margin-right: 3px;}
+.hero-stage__arrow {display: inline-flex; align-items: center; justify-content: center; height: 44px; width: 44px; padding: 0; border: 1px solid #d6cfd8; border-radius: 50%; background: transparent; color: #3b3148; font: inherit; font-size: 19px; cursor: pointer;}
+.hero-stage__arrow:hover {background: #eee8f1; border-color: #a18baf;}
+.hero-stage__play {font: inherit; font-size: 12px; color: #6b626f; padding: 8px; min-height: 44px; border: 0; background: transparent; cursor: pointer;}
+.hero-stage__play:hover {color: #44375f;}
+.hero-stage button:focus-visible, .hero-stage a:focus-visible {outline: 2px solid #5b4b80; outline-offset: 4px;}
+.hero-stage.is-enhanced .hero-stage__slide.is-active .hero-stage__visual {animation: hero-arrive .45s ease both;}
+@keyframes hero-arrive {from {opacity: .3; transform: translateY(8px);} to {opacity: 1; transform: translateY(0);}}
+@media (max-width: 1100px) {
+  .hero-stage__slide {padding: 36px 28px; gap: 14px; min-height: 500px;}
+  .hero-stage__title {font-size: clamp(37px, 4.3vw, 48px);}
+  .hero-stage__actions {gap: 10px 16px;}
+  .hero-stage__controls {padding-inline: 28px; gap: 20px;}
+  .hero-stage__tab {gap: 3px 7px;}
+  .hero-stage__tabs {gap: 16px;}
+  .hero-stage__play > span {position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);}
+  .hero-stage__play::before {content: "▷"; font-size: 19px;}
+  .hero-stage__play[aria-pressed="true"]::before {content: "Ⅱ";}
+}
+@media (max-width: 820px) {
+  .business-hero {padding-top: 20px; padding-bottom: 32px;}
+  .hero-stage__slide {grid-template-columns: 1fr; min-height: 0; padding: 32px; gap: 20px;}
+  .hero-stage__title {font-size: clamp(38px, 6.4vw, 52px); margin-bottom: 18px;}
+  .hero-stage__eyebrow {margin-bottom: 18px;}
+  .hero-stage__lead {max-width: 48ch; min-height: 0; margin-bottom: 22px;}
+  .hero-stage__visual {width: 100%; max-width: 540px; justify-self: center;}
+  .hero-stage__visual figcaption {margin-top: 10px;}
+  .hero-stage__controls {flex-wrap: wrap; padding: 0 28px 16px; gap: 0;}
+  .hero-stage__tabs {flex: 0 0 100%;}
+  .hero-stage__tab {min-height: 84px; padding-top: 18px; padding-bottom: 16px;}
+  .hero-stage__navigation {width: 100%; border-top: 1px solid #e9e4dc; padding-top: 12px;}
+  .hero-stage__play {order: -2; padding-left: 0; margin-right: auto;}
+  .hero-stage__play > span {position: static; width: auto; height: auto; clip-path: none;}
+  .hero-stage__play::before {content: none;}
+  .hero-stage__play[aria-pressed="true"]::before {content: none;}
+  .hero-stage__count {margin-right: 10px;}
+}
+@media (max-width: 480px) {
+  .hero-stage {border-radius: 8px;}
+  .hero-stage__slide {padding: 26px 20px 22px; gap: 18px;}
+  .hero-stage__title {font-size: clamp(31px, 8.6vw, 40px);}
+  .hero-stage__eyebrow {font-size: 9px; letter-spacing: .11em;}
+  .hero-stage__lead {font-size: 14px; line-height: 1.7; min-height: 4.9em;}
+  .hero-stage__actions {gap: 8px 16px; margin-bottom: 16px;}
+  .hero-stage__actions .btn {padding: 13px 15px; font-size: 12px; gap: 15px;}
+  .hero-stage__actions .text-link {font-size: 12px; gap: 8px;}
+  .hero-stage__note, .hero-stage__visual figcaption {font-size: 12px;}
+  .hero-stage__controls {padding-inline: 20px;}
+  .hero-stage__tabs {gap: 10px;}
+  .hero-stage__tab {grid-template-columns: 1fr; gap: 4px; min-height: 110px; padding: 16px 0; align-content: start;}
+  .hero-stage__tab > span {font-size: 12px; grid-row: auto;}
+  .hero-stage__tab b {font-size: 13px;}
+  .hero-stage__tab small {font-size: 12px; grid-column: auto;}
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-stage.is-enhanced .hero-stage__slide.is-active .hero-stage__visual {animation: none;}
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://systemy.skorupkastore.pl/sitemap.xml
