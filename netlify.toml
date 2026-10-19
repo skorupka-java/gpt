@@ -1,0 +1,5 @@
+[build]
+  publish = "."
+
+# Statyczna strona: bez instalacji zależności i bez kroku budowania.
+# Netlify obsługuje adresy /oferta, /kontakt itd. przez odpowiadające pliki HTML.
