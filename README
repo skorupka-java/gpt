@@ -1,1 +1,40 @@
+Skorupka — systemy dla biznesu
+============================
 
+Statyczna strona HTML/CSS/JavaScript na podstawie dostarczonej paczki
+Skorupka-minimal-Netlify.zip. Bez instalacji zależności i bez budowania.
+
+Uruchomienie lokalne
+-------------------
+Z katalogu repozytorium uruchom:
+
+    python3 tools/dev_server.py
+
+Serwer nasłuchuje lokalnie na porcie 4173. Obsługuje również adresy
+/oferta, /kontakt i pozostałe podstrony bez rozszerzenia .html.
+Zatrzymanie: Ctrl+C.
+
+Karuzela
+--------
+Karuzela znajduje się na stronie głównej w sekcji #skorupka-store.
+Treści i obrazy: index.html. Wygląd: css/carousel.css.
+Zachowanie: js/carousel.js. Cztery slajdy, strzałki, wybór slajdu,
+gesty dotykowe i opcjonalne automatyczne odtwarzanie co 6,5 sekundy.
+Domyślnie odtwarzanie jest wyłączone. Fokus i najechanie wstrzymują
+odtwarzanie; ręczna zmiana slajdu je wyłącza. Przy fokusie na panelu
+działają strzałki oraz Home/End. Preferencja ograniczenia ruchu wyłącza
+animację. Bez JavaScript slajdy można przewijać poziomo.
+
+Netlify
+-------
+Po połączeniu repozytorium z Netlify pozostaw polecenie budowania puste,
+a katalog publikacji ustaw na kropkę (.). Zawiera to netlify.toml.
+Można też rozpakować paczkę strony i przesłać folder do Netlify Drop.
+Plik index.html musi znajdować się bezpośrednio w publikowanym folderze.
+
+Formularz kontaktowy pochodzi z oryginalnej paczki. Używa Netlify Forms
+na domenach systemy.skorupkastore.pl i skorupka-systemy.netlify.app.
+Na pozostałych hostach przygotowuje wiadomość w programie pocztowym.
+Po wdrożeniu sprawdź wykrycie formularza „kontakt” i jego wysyłkę na
+docelowej domenie. Lokalny serwer nie obsługuje odbioru formularzy.
+Konfiguracja formularza znajduje się w js/config.js i js/main.js.
